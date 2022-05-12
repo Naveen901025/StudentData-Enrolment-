@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data Enrollment</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        form{
+
+            text-align: center;
+            width: 400px;
+            margin:auto ;
+            padding: 30px;
+            border-radius: 16px;
+            
+        }
+        input{
+            padding: 20px 30px;
+            width: 300px;
+            outline: none;
+            border: gray 1px solid;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Enrollment into a Table</h1>
+    
+   <form action="" onsubmit="getData()">
+    <input type="text" name="stdId" id="Sid" minlength="3" maxlength="6" placeholder="Enter your Student Id" required ><br>
+    <br>
+    <input type="text" name="stdName" id="Sname" placeholder="Enter your Name "required><br>
+    <br>
+    <input type="number" name="stdMarks" id="Smarks" laceholder="Enter your Marks "required><br>
+    <br>
+    <input type="tel" name="stdMbl" id="Smobile" placeholder="Enter your Mobile No "required><br>
+    <br>
+    
+    <button type="submit"> Submit</button>
+    <button type="reset"> Reset</button>
+    
+
+    <br><br><br>
+    <br>
+    <br>
+    <div>
+        
+     <table border="2px" rules="all" cellpadding="10px" align="center" id="data" >
+         <tr>
+             <th>Student Id</th>
+             <th> Name</th>
+             <th> Marks</th>
+             <th> MobileNo</th> 
+         </tr>
+         <tr></tr>
+
+  </table>
+    </div>
+
+</form>
+    
+    <script>
+
+    
+        function getData() {
+            
+            let user = document.getElementById("Sid").value;
+            let pass = document.getElementById("Sname").value;
+            let mark = document.getElementById("Smarks").value;
+            let num  = document.getElementById("Smobile").value;
+
+            let td = document.getElementById("data").insertRow(-1)
+        
+            var x = td.insertCell(0);
+            var y = td.insertCell(1);
+            var z = td.insertCell(2);
+            var a = td.insertCell(3);
+
+            x.innerHTML = `${user}`;
+            y.innerHTML = `${pass}`;
+            z.innerHTML = `${mark}`;
+            a.innerHTML = `${num}`;
+            console.log(user,pass,mark,num)
+            // str = str + `<td>${user}</td><td>${pass}</td><td>${mark}</td><td>${num}</td>`
+
+            // td.appendChild(str);
+            event.preventDefault();//It stops form submitting
+
+        }
+        
+
+    </script>
+</body>
+</html>
